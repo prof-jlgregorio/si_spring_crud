@@ -24,8 +24,9 @@ public class PersonControllerV2 {
     @Autowired
     private PersonServiceV2 service;
 
+
     @ApiOperation(value = "Retrieve a Person using an ID", produces = "JSON", response = PersonModel.class)
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = {"application/json", "application/xml"})
     public PersonModelV2 findById(@ApiParam(name = "id", value = "An integer value", required = true)
                                       @PathVariable("id") long id) throws Exception{
         return service.findById(id);
@@ -38,7 +39,7 @@ public class PersonControllerV2 {
         return service.findAll();
     }
 
-    @PostMapping
+    @PostMapping(produces = {"application/xml", "application/json"}, consumes = {"application/xml", "application/json"})
     public PersonModelV2 save(@RequestBody PersonModelV2 personModel){
         return service.save(personModel);
     }

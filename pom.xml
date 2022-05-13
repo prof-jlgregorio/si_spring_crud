@@ -15,6 +15,13 @@
     <description>A simple CRUD application to learn Spring</description>
     <properties>
         <java.version>11</java.version>
+
+        <!-- flyway configuratin -->
+        <flyway.url>jdbc:mysql://localhost:3306/spring_crud</flyway.url>
+        <flyway.user>root</flyway.user>
+        <flyway.password>mysqldba</flyway.password>
+        <flyway.schemas>spring_crud</flyway.schemas>
+
     </properties>
     <dependencies>
         <dependency>
@@ -60,6 +67,24 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
+        </dependency>
+
+        <!-- Content Negotiation XML Support -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+        <!-- Content Negotiation YAML Support -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>8.5.10</version>
         </dependency>
 
     <!--  end of dependencies list   -->
